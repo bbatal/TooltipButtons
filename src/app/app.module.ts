@@ -3,10 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TooltipsComponent } from './tooltips/tooltips.component';
+import { FocusOutDirective } from './focus-out.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TooltipsComponent,
+    FocusOutDirective
   ],
   imports: [
     BrowserModule,
