@@ -1,5 +1,5 @@
-import { Component, OnInit, HostListener } from '@angular/core';
-import { Button } from 'protractor';
+import { Component, OnInit, HostListener, Directive, ViewChild, ElementRef, Inject } from '@angular/core';
+import { debounce } from '../debounce';
 
 @Component({
   selector: 'app-tooltips',
@@ -11,9 +11,14 @@ makeAppear1: boolean = true;
 makeAppear2: boolean = true;
 buttonOpacity1: number = 0;
 buttonOpacity2: number = 0;
-something;
+welcomeText: string = "welcome to the party"
+top: number = 0;
+
 
   constructor() { }
+
+@ViewChild('box', {static: false}) box: ElementRef;
+@ViewChild('box2', {static: false}) box2: ElementRef;
 
 @HostListener('window:keyup', ['$event'])
 keyup(e) {
@@ -23,6 +28,30 @@ keyup(e) {
     this.buttonOpacity1 = 0;
     this.buttonOpacity2 = 0;
   }
+}
+
+@HostListener('window:scroll')
+@debounce()
+checkButton() {
+  const buttonOrSpan = document.querySelectorAll('.tooltipText') as any as Array<HTMLBaseElement>;
+  buttonOrSpan.forEach(tooltip => {
+    const bounding = tooltip.getBoundingClientRect();
+    console.log(bounding);
+
+    if(bounding.top < 0) {
+      this.box.nativeElement.classList.remove('mini-box')
+      this.box.nativeElement.classList.add('top');
+
+      this.box2.nativeElement.classList.remove('mini-box')
+      this.box2.nativeElement.classList.add('top');
+    } else if (bounding.bottom > window.innerHeight) {
+      this.box.nativeElement.classList.remove('top')
+      this.box.nativeElement.classList.add('mini-box');
+
+      this.box2.nativeElement.classList.remove('top')
+      this.box2.nativeElement.classList.add('mini-box');
+    }
+  })
 }
 
 
