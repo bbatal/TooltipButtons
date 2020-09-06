@@ -33,23 +33,22 @@ keyup(e) {
 @HostListener('window:scroll')
 @debounce()
 checkButton() {
-  const buttonOrSpan = document.querySelectorAll('.tooltipText') as any as Array<HTMLBaseElement>;
-  buttonOrSpan.forEach(tooltip => {
+  const Span = document.querySelectorAll('.tooltipText') as any as Array<HTMLBaseElement>;
+  Span.forEach(tooltip => {
     const bounding = tooltip.getBoundingClientRect();
-    console.log(bounding);
-
-    if(bounding.top < 0) {
-      this.box.nativeElement.classList.remove('mini-box')
-      this.box.nativeElement.classList.add('top');
-
-      this.box2.nativeElement.classList.remove('mini-box')
-      this.box2.nativeElement.classList.add('top');
-    } else if (bounding.bottom > window.innerHeight) {
+    console.log(bounding)
+  if (bounding.top > 180) {
       this.box.nativeElement.classList.remove('top')
       this.box.nativeElement.classList.add('mini-box');
 
       this.box2.nativeElement.classList.remove('top')
       this.box2.nativeElement.classList.add('mini-box');
+} else if(bounding.top < 0) {
+      this.box.nativeElement.classList.remove('mini-box')
+      this.box.nativeElement.classList.add('top');
+
+      this.box2.nativeElement.classList.remove('mini-box')
+      this.box2.nativeElement.classList.add('top');
     }
   })
 }

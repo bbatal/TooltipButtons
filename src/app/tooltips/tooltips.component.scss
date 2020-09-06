@@ -23,13 +23,13 @@
     justify-content: space-around;
     height: 10vh;
 
-    .tooltip {
+    .tooltip-container {
         position: relative;
         display: inline-block;
         margin-bottom: -40px;
     }
 
-    .tooltip .tooltipText {
+    .tooltip-container .tooltipText {
             width: 120px;
             background-color: #555;
             color: #fff;
@@ -45,13 +45,11 @@
             transition: opacity 0.3s;
     }
 
-    .tooltip .tooltiptext::after {
+    .tooltip-container .tooltipText::after {
         content: "";
         position: absolute;
         top: 100%;
         left: 50%;
-        width: 10px;
-        height: 10px;
         margin-left: -5px;
         border-width: 5px;
         border-style: solid;
@@ -67,13 +65,13 @@
     justify-content: space-around;
     height: 10vh;
 
-    .tooltip {
+    .tooltip-container {
         position: relative;
         display: inline-block;
-        margin-bottom: -40px;
+        margin-bottom: -20px;
     }
 
-    .tooltip .tooltipText {
+    .tooltip-container .tooltipText {
             width: 120px;
             background-color: #555;
             color: #fff;
@@ -89,16 +87,14 @@
             transition: opacity 0.3s;
     }
 
-    .tooltip .tooltiptext::after {
-        content: "";
+    .tooltip-container .tooltipText:after {
+        content: " ";
         position: absolute;
-        top: 100%;
+        bottom: 100%;
         left: 50%;
-        width: 10px;
-        height: 10px;
         margin-left: -5px;
         border-width: 5px;
         border-style: solid;
-        border-color: #555 transparent transparent transparent;
+        border-color: transparent transparent #555 transparent;
       }
   }
