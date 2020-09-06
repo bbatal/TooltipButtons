@@ -1,12 +1,12 @@
 <div id="container">
 <div class="mini-box" #box>
-        <div [hidden]="makeAppear1" class="tooltip" appFocusOut>
+        <div [hidden]="makeAppear1" class="tooltip-container" appFocusOut>
             <span class="tooltipText" [style.opacity]="buttonOpacity1" appFocusOut (onFocusOut)="myFunction($event, 1)">Tooltip Text</span>
         </div>
         <button (click)="appearBox(1)" appFocusOut (onFocusOut)="myFunction($event, 1)">Click Me!</button>
 </div>
 <div class="mini-box" #box2>
-        <div [hidden]="makeAppear2" class="tooltip" appFocusOut>
+        <div [hidden]="makeAppear2" class="tooltip-container" appFocusOut>
             <span class="tooltipText" [style.opacity]="buttonOpacity2" appFocusOut (onFocusOut)="myFunction($event, 2)">Tooltip Text</span>
         </div>
         <button (click)="appearBox(2)" appFocusOut (onFocusOut)="myFunction($event, 2)">Click Me Too!</button>
