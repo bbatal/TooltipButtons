@@ -12,7 +12,6 @@ makeAppear2: boolean = true;
 buttonOpacity1: number = 0;
 buttonOpacity2: number = 0;
 welcomeText: string = "welcome to the party"
-top: number = 0;
 
 
   constructor() { }
@@ -36,7 +35,6 @@ checkButton() {
   const Span = document.querySelectorAll('.tooltipText') as any as Array<HTMLBaseElement>;
   Span.forEach(tooltip => {
     const bounding = tooltip.getBoundingClientRect();
-    console.log(bounding)
   if (bounding.top > 180) {
       this.box.nativeElement.classList.remove('top')
       this.box.nativeElement.classList.add('mini-box');
